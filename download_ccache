@@ -16,7 +16,7 @@ tg(){
 }
 
 id=$tg_id # Your telegram id
-tg $id "Downloads Cache at $(date)"
+tg $id "Downloads Cache at $date"
 
 curl https://anu.inok189.workers.dev/ccache/ccache.tar.gz -o /tmp/ccache.tar.gz
 
