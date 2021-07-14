@@ -4,9 +4,9 @@ env: # Environment variables to pass to all tasks
 
     # For rclone with google drive or any cloud! After first commit pushing, login to https://cirrus-ci.com , click top left corner 3 dot menu, click repository(yourname/aosp-builder) > Repository Settings > Secured Variables > enter content of ~/.config/rclone/rclone.conf (from pc where you setup rclone) > ENCRYPT, copy that ENCRYPTED hash
     # ENCRYPTED variables is unique for every repository, so you cant use my one, create you rclone config https://rclone.org/drive/#making-your-own-client-id
-    rclone_config: "ENCRYPTED[1f152d7445cdb14babd2bfbf91391a29cd5a2705125d472a7a913ec880780ef5e402a72dcb9547ce00f78dbab276da33]"
-    bot_api: "ENCRYPTED[bf57f6c631364712eaf1e135a9f13e235ed1614af30208ee70cff28c8d3f6fe0dbdb79675cc020454eeeeb99bb80d4be]"
-    tg_id: "ENCRYPTED[a46f98acdd9fac34550236ff8d9fde6f44eae8c06a7c166b2d2a9e0521b7742ee6c11de92dc82287a5c32b7d3f56c6fa]"
+    rclone_config: "ENCRYPTED[74e5076c8fff6753e7dd621d4ddef5c6ecfd819335568a52daef8a4a305fb04e62325fd85e4bc759f5f0fb6c11e8d59b]"
+    bot_api: "ENCRYPTED[43f84ed742f7ff41bf9b0b0d4e57616b94fae52ae936c59488af7dacc6b3e170a8e9286823fde85235d1c923a30f6578]"
+    tg_id: "ENCRYPTED[6e8f38c44b5906dcb2bf1aff078248323416766f8f0e00a1a04ca5cccf87b62a97feca4112f4da13891f1eda639362ac]"
 
 task:
     name: derpfest # Project name
