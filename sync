@@ -3,9 +3,6 @@
 git config --global  user.name "I-n-o-k"
 git config --global  user.email "inok.dr189@gmail.com"
 
-# Fix TimeZone
-sudo ln -snf /usr/share/zoneinfo/Asia/jakarta /etc/localtime
-
 #tg
 tg(){
 	bot_api=$bot_api # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
@@ -30,4 +27,3 @@ git clone --depth=1 https://github.com/MiBengal-Development/Device_xiaomi_J --si
 git clone --depth=1 https://github.com/I-n-o-k/prebuilt_vendor_juice --single-branch -b 11 vendor/xiaomi/juice
 git clone --depth=1 https://github.com/MiBengal-Development/android_kernel_xiaomi_bengal  --single-branch -b 11.0 kernel/xiaomi/juice
 git clone --depth=1 https://github.com/GengKapak/GengKapak-clang --single-branch -b 13 prebuilts/clang/host/linux-x86/clang-gengkapak
-
