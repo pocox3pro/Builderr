@@ -21,20 +21,34 @@ tg(){
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
 }
 id=$tg_id # Your telegram id
-tg $id "*uploading ccache at $(date)"
+tg $id "uploading ccache at $(date)"
 
-send_zip=$(ls rom/out/target/product/juice/*zip)
+send_zip=$(ls /tmp/rom/out/target/product/juice/Nusantara*.zip)
 
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
 cat ~/.config/rclone/rclone.conf
 
-time rclone copy /tmp/rom/out/target/product/juice/*zip inok:juice -P
+time rclone copy /tmp/rom/out/target/product/juice/Nusantara*.zip inok:juice -P
 time rclone copy ccache.tar.gz inok:ccache -P
 time rclone copy /tmp/rom/out/error.log inok: -P
 
-tg $id "*juice Compile Status*: \`Build Succeed!`\
-*Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
-*Download Link*: [$send_zip](https://anu.inok189.workers.dev/juice/$send_zip)"
- 
+#tg
+tg(){
+	bot_api=$bot_api # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
+	your_telegram_id=$1 # No need to touch
+	msg=$2 # No need to touch
+	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
+}
+id=$tg_id # Your telegram id
+tg $id "Download ROM Link: [$send_zip](https://anu.inok189.workers.dev/juice/$send_zip)"
+
+#tg
+tg(){
+	bot_api=$bot_api # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
+	your_telegram_id=$1 # No need to touch
+	msg=$2 # No need to touch
+	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
+}
+id=$tg_id # Your telegram id 
 tg $id "upload ccache done at $(date)"
