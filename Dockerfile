@@ -1,6 +1,6 @@
 FROM ubuntu:hirsute
 
-LABEL maintainer="inok <inok2341@gmail.com>"
+LABEL maintainer="rahul9999xda <rahul9999xda@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 

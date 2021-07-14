@@ -9,7 +9,7 @@ env: # Environment variables to pass to all tasks
     tg_id: "ENCRYPTED[a46f98acdd9fac34550236ff8d9fde6f44eae8c06a7c166b2d2a9e0521b7742ee6c11de92dc82287a5c32b7d3f56c6fa]"
 
 task:
-    name: nusantara # Project name
+    name: derpfest # Project name
     timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       dockerfile: Dockerfile # It has built-in setup environment + repo, aria2, rclone, pigz, username ci, and email ci@ci.ci [You can use your own docker image if you want, or you can use this one too!]

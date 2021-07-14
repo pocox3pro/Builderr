@@ -6,8 +6,8 @@ cat /tmp/rom/out/error.log
 cd /tmp
 
 # Compress function with pigz for faster compression
-com () 
-{ 
+com ()
+{
     tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
 }
 
@@ -23,15 +23,15 @@ tg(){
 id=$tg_id # Your telegram id
 tg $id "uploading ccache at $(date)"
 
-send_zip=$(ls /tmp/rom/out/target/product/juice/Nusantara*.zip)
+send_zip=$(ls rom/out/target/product/vayu/*.zip)
 
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
 cat ~/.config/rclone/rclone.conf
 
-time rclone copy /tmp/rom/out/target/product/juice/Nusantara*.zip inok:juice -P
-time rclone copy ccache.tar.gz inok:ccache -P
-time rclone copy /tmp/rom/out/error.log inok: -P
+time rclone copy $send_zip remote:vayuccache -P
+time rclone copy ccache.tar.gz remote:vayuccache -P
+time rclone copy /tmp/rom/out/error.log remote:vayuccache -P
 
 #tg
 tg(){
@@ -41,7 +41,7 @@ tg(){
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
 }
 id=$tg_id # Your telegram id
-tg $id "Download ROM Link: [$send_zip](https://anu.inok189.workers.dev/juice/$send_zip)"
+tg $id "Download ROM Link: [$send_zip](https://ap.apd1.workers.dev/4:/vayuccache/$send_zip)"
 
 #tg
 tg(){
@@ -50,5 +50,5 @@ tg(){
 	msg=$2 # No need to touch
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
 }
-id=$tg_id # Your telegram id 
+id=$tg_id # Your telegram id
 tg $id "upload ccache done at $(date)"
