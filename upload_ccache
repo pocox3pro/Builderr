@@ -33,6 +33,8 @@ time rclone copy $send_zip remote:vayuccache -P
 time rclone copy ccache.tar.gz remote:vayuccache -P
 time rclone copy /tmp/rom/out/error.log remote:vayuccache -P
 
+dlink=$(basename out/target/product/vayu/*.zip)
+
 #tg
 tg(){
 	bot_api=$bot_api # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
@@ -41,7 +43,7 @@ tg(){
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
 }
 id=$tg_id # Your telegram id
-tg $id "Download ROM Link: [$send_zip](https://ap.apd1.workers.dev/4:/vayuccache/$send_zip)"
+tg $id "Download ROM Link https://ap.apd1.workers.dev/4:/vayuccache/$dlink"
 
 #tg
 tg(){
