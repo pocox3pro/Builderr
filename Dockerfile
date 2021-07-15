@@ -12,7 +12,7 @@ RUN apt-get -yqq update \
     && chmod a+rx /usr/local/bin/repo \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
     && echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && /usr/sbin/locale-gen \
-    && TZ=Asia/Jakarta \
+    && TZ=Asia/Kolkata \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 VOLUME ["/tmp/ccache", "/tmp/rom"]

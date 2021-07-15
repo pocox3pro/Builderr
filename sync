@@ -22,4 +22,4 @@ repo init -q --no-repo-verify --depth=1 -u git://github.com/DerpFest-11/manifest
 
 git clone https://github.com/pocox3pro/Local-Manifests -b master --depth=1 .repo/local_manifests
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
